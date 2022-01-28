@@ -19,6 +19,11 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
+        public void Add(Category categroy)
+        {
+            _categoryDal.Add(categroy);
+        }
+
         public List<Category> GetAll()
         {
             return _categoryDal.GetAll();
