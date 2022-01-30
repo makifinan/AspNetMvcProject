@@ -30,10 +30,10 @@ namespace DataAccess.Concrete.EntityFramework
             context.SaveChanges();
         }
 
-        public List<T> Get(Expression<Func<T, bool>> filter)
-        {
-            return _object.Where(filter).ToList();
-        }
+        //public List<T> Get(Expression<Func<T, bool>> filter)
+        //{
+        //    return _object.Where(filter).ToList();
+        //}
 
         public List<T> GetAll()
         {
@@ -41,9 +41,29 @@ namespace DataAccess.Concrete.EntityFramework
 
         }
 
+        //public List<T> GetAll(Expression<Func<T, bool>> filter)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public List<T> List(Expression<Func<T, bool>> filter)
+        {
+            return _object.Where(filter).ToList();
+        }
+
+        public List<T> List()
+        {
+            return _object.ToList();
+        }
+
         public void Update(T entity)
         {
             context.SaveChanges();
+        }
+
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
         }
     }
 }

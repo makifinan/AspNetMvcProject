@@ -11,6 +11,7 @@ namespace Business.Abstract
     {
         List<Category> GetAll();
         void Add(Category categroy);
+        Category GetByID(int id);
     }
 
     
